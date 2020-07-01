@@ -8,12 +8,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import by.artempvn.les05.exception.CustomException;
 
 public class DataReader {
 	private static final String DEFAULT_PASS = "input/data.txt";
-	private static final String DELIMITER = " ";
+	private static final String SPACE_DELIMITER = " ";
 
 	public String readFile(String path) throws CustomException {
 		if (path == null || !Files.isReadable(Paths.get(path))) {
@@ -25,7 +24,7 @@ public class DataReader {
 		} catch (IOException ex) {
 			throw new CustomException("Error: could't open data file.", ex);
 		}
-		String data = String.join(DELIMITER, strings);
+		String data = String.join(SPACE_DELIMITER, strings);
 		if (data.isEmpty()) {
 			throw new CustomException("Data is empty");
 		}
